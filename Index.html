@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2K - Pembelian Kode</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+        .form-box {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .product-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .vip-code-info {
+            background-color: #ff9800;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px auto;
+            width: 80%;
+            font-size: 18px;
+        }
+        input[type="text"], input[type="number"], input[type="submit"] {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>P2K - Pembelian Kode Akses</h1>
+</header>
+
+<div class="container">
+    <!-- Formulir Pembelian -->
+    <div class="form-box">
+        <h2>Formulir Pembelian Kode Akses VIP</h2>
+        <p>Silakan isi formulir di bawah ini untuk membeli kode akses VIP seharga 9 BTC.</p>
+        <form id="purchase-form">
+            <input type="text" id="fullname" placeholder="Nama Lengkap" required><br>
+            <input type="text" id="email" placeholder="Email" required><br>
+            <input type="number" id="btc-amount" placeholder="Jumlah BTC" required><br>
+            <input type="submit" value="Kirim Pembelian">
+        </form>
+    </div>
+
+    <!-- Tempat Pembelian -->
+    <div class="form-box">
+        <h2>Tempat Pembelian</h2>
+        <img src="your-product-image.jpg" alt="Foto Produk" class="product-image">
+        <p>Gambar produk tempat pembelian kode.</p>
+    </div>
+
+    <!-- Verifikasi Kode Akses -->
+    <div class="form-box">
+        <h2>Verifikasi Kode Akses</h2>
+        <input type="text" id="vip-code" placeholder="Masukkan Kode Akses VIP">
+        <input type="submit" value="Verifikasi Kode" onclick="verifyCode()">
+    </div>
+
+    <!-- Informasi VIP -->
+    <div class="vip-code-info" id="vip-info" style="display:none;">
+        <p>Selamat! Kode akses VIP Anda telah berhasil diverifikasi dan aktif.</p>
+    </div>
+</div>
+
+<script>
+    // Fungsi untuk menangani formulir pembelian
+    document.getElementById('purchase-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const btcAmount = document.getElementById('btc-amount').value;
+        if (btcAmount == 9) {
+            alert('Pembelian berhasil. Admin akan menghubungi Anda untuk mengirimkan kode VIP!');
+        } else {
+            alert('Jumlah BTC yang Anda masukkan tidak sesuai. Harap masukkan 9 BTC.');
+        }
+    });
+
+    // Fungsi untuk memverifikasi kode
+    function verifyCode() {
+        const enteredCode = document.getElementById('vip-code').value;
+        const correctCode = '123456789'; // Ganti dengan kode yang benar
+
+        if (enteredCode === correctCode) {
+            document.getElementById('vip-info').style.display = 'block'; // Tampilkan informasi VIP
+        } else {
+            alert('Kode yang Anda masukkan salah. Coba lagi.');
+        }
+    }
+</script>
+
+</body>
+</html>
